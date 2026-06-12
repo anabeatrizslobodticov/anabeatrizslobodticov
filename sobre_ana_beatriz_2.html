@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Beatriz Slobodticov — Advogada</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --red: #C8001E;
+    --blue: #3366FF;
+    --cream: #F5F0E8;
+    --cream2: #EDE9E1;
+    --dark-blue: #0D1A3A;
+    --teal: #2EC4B6;
+    --white: #FFFFFF;
+    --ink-light: rgba(13,13,13,0.42);
+    --ink-mid: rgba(13,13,13,0.65);
+    --rule: rgba(13,13,13,0.1);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--black);
+    z-index: 100;
+    padding: 0 2rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(245,240,232,0.08);
+  }
+
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--red) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-left {}
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
+  .hero-oab {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 2rem;
+  }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.6;
+    max-width: 340px;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-stat {
+    border-left: 1.5px solid rgba(245,240,232,0.12);
+    padding-left: 1rem;
+  }
+
+  .hero-stat-value {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .hero-stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.35);
+    text-transform: uppercase;
+  }
+
+  /* SECTION BASE */
+  .section { padding: 5rem 2rem; }
+  .section-inner { max-width: 720px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--rule);
+    max-width: 100px;
+  }
+
+  /* TILT */
+  .tilt-section {
+    background: var(--cream);
+    border-top: 1px solid var(--black);
+  }
+
+  .tilt-box {
+    border-left: 3px solid var(--red);
+    padding: 1.5rem 2rem;
+    background: var(--cream2);
+    margin-bottom: 3rem;
+  }
+
+  .tilt-box p {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--black);
+  }
+
+  .tilt-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .tilt-col p {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  .tilt-col p + p { margin-top: 1rem; }
+
+  /* MÉTODO */
+  .method-section {
+    background: var(--dark-blue);
+    color: var(--white);
+  }
+
+  .method-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .method-section h2 em { font-style: italic; color: var(--teal); }
+
+  .method-steps {
+    border-top: 0.5px solid rgba(245,240,232,0.12);
+    margin-bottom: 3rem;
+  }
+
+  .method-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid rgba(245,240,232,0.08);
+    align-items: start;
+  }
+
+  .method-step-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
+
+  .method-step h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+
+  .method-step p {
+    font-size: 13px;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.55;
+  }
+
+  .method-quote {
+    border-left: 2px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    background: rgba(46,196,182,0.05);
+  }
+
+  .method-quote p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.6;
+  }
+
+  /* TRAJETÓRIA */
+  .trajectory-section {
+    background: var(--cream);
+  }
+
+  .trajectory-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .trajectory-section h2 em { font-style: italic; }
+
+  .timeline {
+    border-top: 1px solid var(--black);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+
+  .timeline-period {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    padding-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .timeline-body h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--black);
+  }
+
+  .timeline-body p {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  .timeline-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    margin-top: 6px;
+  }
+
+  .tag-academic { background: rgba(51,102,255,0.1); color: var(--blue); }
+  .tag-practice { background: rgba(200,0,30,0.08); color: var(--red); }
+  .tag-research { background: rgba(46,196,182,0.1); color: #0e8a7e; }
+
+  /* PUBLICAÇÕES */
+  .pub-section {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .pub-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .pub-section h2 em { font-style: italic; color: var(--cream); }
+
+  .pub-list {
+    border-top: 0.5px solid rgba(245,240,232,0.12);
+  }
+
+  .pub-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid rgba(245,240,232,0.08);
+    align-items: start;
+  }
+
+  .pub-year {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: rgba(245,240,232,0.3);
+    padding-top: 3px;
+  }
+
+  .pub-body h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .pub-body p {
+    font-size: 12px;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.4;
+  }
+
+  .pub-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    margin-top: 6px;
+    background: rgba(46,196,182,0.12);
+    color: var(--teal);
+  }
+
+  /* ÁREAS */
+  .areas-section {
+    background: var(--cream);
+    border-top: 1px solid var(--black);
+  }
+
+  .areas-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin-bottom: 2rem;
+  }
+
+  .area-card {
+    background: var(--cream);
+    padding: 1.5rem;
+  }
+
+  .area-num {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .area-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: var(--black);
+  }
+
+  .area-card p {
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  /* CONTATO */
+  .contact-section {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .contact-section h2 em { font-style: italic; color: var(--teal); }
+
+  .contact-section p {
+    font-size: 14px;
+    color: rgba(245,240,232,0.55);
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .contact-btn.primary {
+    background: var(--teal);
+    color: var(--black);
+  }
+
+  .contact-btn.secondary {
+    background: transparent;
+    color: rgba(245,240,232,0.7);
+    border: 0.5px solid rgba(245,240,232,0.2);
+  }
+
+  .contact-btn:hover { opacity: 0.85; }
+
+  .contact-detail {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.25);
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    color: rgba(245,240,232,0.25);
+    padding: 2rem;
+    text-align: center;
+    border-top: 0.5px solid rgba(245,240,232,0.06);
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  footer span { color: var(--blue); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+    .tilt-body { grid-template-columns: 1fr; gap: 1.5rem; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .method-step { grid-template-columns: 70px 1fr; }
+    .timeline-item { grid-template-columns: 80px 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Ana Beatriz Slobodticov</a>
+  <ul class="nav-links">
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#trajetoria">Trajetória</a></li>
+    <li><a href="#publicacoes">Publicações</a></li>
+    <li><a href="https://anabeatrizslobodticov.github.io/anabeatrizslobodticov/" target="_blank">Diagnóstico</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Advogada · Contratos e AED</p>
+      <h1>Ana Beatriz<br><em>Slobodticov</em></h1>
+      <p class="hero-oab">OAB/SP 348.784</p>
+      <p class="hero-tagline">Entro onde há falha estrutural jurídica — e saio com sistema funcionando.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <p class="hero-stat-value">AED</p>
+        <p class="hero-stat-label">Análise Econômica do Direito</p>
+      </div>
+      <div class="hero-stat">
+        <p class="hero-stat-value">Mestranda</p>
+        <p class="hero-stat-label">Direito Negocial · UEL</p>
+      </div>
+      <div class="hero-stat">
+        <p class="hero-stat-value">Preventivo</p>
+        <p class="hero-stat-label">Direito Contratual</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TILT / POSICIONAMENTO -->
+<section class="section tilt-section" id="metodo">
+  <div class="section-inner">
+    <p class="eyebrow">Posicionamento</p>
+    <div class="tilt-box">
+      <p>"Comportamento cria falha.<br>Estrutura cria liberdade.<br>Eu entro na falha — e saio com sistema."</p>
+    </div>
+    <div class="tilt-body">
+      <div class="tilt-col">
+        <p>A maioria dos problemas jurídicos de empresas não nasce de má-fé nem de azar. Nasce de estrutura mal desenhada — contratos que não protegem, incentivos que geram o comportamento errado, fluxos que existem só na memória das pessoas.</p>
+        <p>Uso Análise Econômica do Direito e economia comportamental para identificar onde está a falha estrutural — e por que o padrão se repete.</p>
+      </div>
+      <div class="tilt-col">
+        <p>Não trabalho com advocacia reativa. Meu trabalho é anterior ao conflito — diagnosticar, mapear e reorganizar para que o problema não aconteça, ou para que quando aconteça, o empresário esteja protegido.</p>
+        <p>Projeto com escopo definido: entro, diagnostico, reconstrói o sistema, saio. O negócio continua funcionando sem depender de mim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="section method-section">
+  <div class="section-inner">
+    <p class="eyebrow" style="color:rgba(46,196,182,0.5);">Como trabalho</p>
+    <h2>Diagnóstico. Mapeamento.<br><em>Reconstrução.</em> Sistema.</h2>
+    <div class="method-steps">
+      <div class="method-step">
+        <span class="method-step-num">Diagnóstico</span>
+        <div>
+          <h4>Identifico onde está a falha</h4>
+          <p>Não parto de suposição. Mapeio a estrutura real do negócio — contratos, fluxos, relações, incentivos — e identifico os pontos de ruptura com precisão.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">Análise</span>
+        <div>
+          <h4>Explico por que o padrão existe</h4>
+          <p>AED e economia comportamental revelam o incentivo que sustenta o problema. Não trato sintoma — trato a causa estrutural.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">Reconstrução</span>
+        <div>
+          <h4>Reorganizo com método</h4>
+          <p>Contratos, fluxos, procedimentos — redesenhados para que o sistema funcione com previsibilidade e sem depender de improviso.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">Saída</span>
+        <div>
+          <h4>O sistema continua sem mim</h4>
+          <p>Não crio dependência. Entrego estrutura que funciona — e me retiro. O negócio opera com autonomia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="method-quote">
+      <p>"Em todo lugar que trabalhei, entrei na falha estrutural e saí com sistema. Quatro organizações. O mesmo padrão. A mesma solução."</p>
+    </div>
+  </div>
+</section>
+
+  <!-- TRAJETÓRIA -->
+<section class="section trajectory-section" id="trajetoria">
+  <div class="section-inner">
+    <p class="eyebrow">Trajetória</p>
+    <h2>Uma história que<br><em>sempre se repetiu.</em></h2>
+    <div class="tilt-body" style="margin-top:2rem;">
+      <div class="tilt-col">
+        <p>Passei anos dentro de organizações públicas. Em todas elas, o padrão era o mesmo: volume acumulado, procedimentos que existiam só na memória das pessoas, ausência de fluxo documentado. E em todas elas eu fiz a mesma coisa — olhei para o que havia, identifiquei onde estava a falha, e reconstruí o sistema para que funcionasse sem depender de mim.</p>
+        <p>Em uma delas, eram mais de trezentos procedimentos sem destino definido. Saímos com menos de cinquenta — cada um com responsável, prazo e fluxo claro. Em outra, não havia nenhuma rotina documentada. Quando saí, o setor operava de forma contínua, independente de quem estivesse presente.</p>
+      </div>
+      <div class="tilt-col">
+        <p>O que aprendi com isso não foi jurídico. Foi metodológico. Falha estrutural tem padrão. E padrão tem solução — quando você sabe o que procurar e como reconstruir.</p>
+        <p>Foi essa percepção que me levou ao mestrado em Direito Negocial e à pesquisa em Análise Econômica do Direito. A AED e a economia comportamental não chegaram como novidade acadêmica — chegaram como explicação teórica para o que eu já via na prática: comportamento segue incentivo, e incentivo segue estrutura. Mude a estrutura, mude o resultado.</p>
+        <p>Hoje aplico esse raciocínio a empresas. O ambiente é diferente. O método é o mesmo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICAÇÕES -->
+<section class="section pub-section" id="publicacoes">
+  <div class="section-inner">
+    <p class="eyebrow" style="color:rgba(245,240,232,0.25);">Produção acadêmica</p>
+    <h2>Publicações e<br><em>pesquisa.</em></h2>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-body">
+          <h4>Análise Econômica da (In)Eficiência do CEJUSC como Meio de Acesso à Justiça</h4>
+          <p>In: Gestão de Conflitos e Análise Econômica do Direito. Londrina: Editora Thoth, 2026.</p>
+          <span class="pub-badge">Capítulo de livro</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-body">
+          <h4>Dessobrestamento e Controle de Qualidade na Aplicação da Tese: uma análise consequencialista</h4>
+          <p>In: Pós-Precedente. Londrina: Editora Thoth, 2026.</p>
+          <span class="pub-badge">Capítulo de livro</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-body">
+          <h4>Dispute System Design e a Administração Pública: uma nova abordagem no tratamento dos litígios estruturais públicos</h4>
+          <p>In: Direitos Fundamentais na Perspectiva Ítalo-Brasileira, Vol. VII. Iberojur Science Press · Università degli Studi di Padova. Coautoria com Nathalia Godoy Rodrigues e Tânia Lobo Muniz.</p>
+          <span class="pub-badge">Capítulo de livro</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-body">
+          <h4>Liberdade nos negócios jurídicos: o papel da autonomia privada e os limites impostos pelas normas legais</h4>
+          <p>Revista OWL Journal, v. 4, n. 4, 2026. DOI: 10.5281/zenodo.19503291. Avaliação double blind review.</p>
+          <span class="pub-badge">Artigo · Periódico</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-body">
+          <h4>Precedentes sob a Ótica da Análise Econômica do Direito: entre a segurança jurídica e o custo social</h4>
+          <p>In: Precedentes no Processo Civil. Londrina: Editora Thoth, 2025.</p>
+          <span class="pub-badge">Capítulo de livro</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-body">
+          <h4>A Mediação como Instrumento de Acesso à Justiça no Direito de Família</h4>
+          <p>In: Do Acesso à Justiça no Direito das Famílias e Sucessões, v. V. Londrina: Editora Thoth, 2025. Coautoria com Nathalia Godoy Rodrigues.</p>
+          <span class="pub-badge">Capítulo de livro</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-body">
+          <h4>Apresentações no XXXII Congresso Nacional do CONPEDI — Universidade Presbiteriana Mackenzie, São Paulo</h4>
+          <p>A Cláusula Escalonada como Instrumento de Gestão de Conflitos e Eficiência nos Contratos Administrativos · Gestão de Conflitos na Administração Pública: uma leitura à luz da AED · Processo Estrutural e a Atuação do Ministério Público na Efetivação de Políticas Públicas.</p>
+          <span class="pub-badge">Congresso · CONPEDI</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-body">
+          <h4>Gestão Estratégica de Conflitos Contratuais pela Análise Econômica do Direito: da incompletude à eficiência</h4>
+          <p>VI Encontro do Grupo de Estudos em AED – GRAED/PUCPR, Curitiba, 2025.</p>
+          <span class="pub-badge">Congresso</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">Em curso</span>
+        <div class="pub-body">
+          <h4>Gestão de Conflitos nos Contratos Administrativos sob a ótica da Análise Econômica do Direito</h4>
+          <p>Dissertação de mestrado. Universidade Estadual de Londrina. Orientação: Prof.ª Tânia Lobo Muniz · Co-orientação: Prof.ª Patrícia Ayub da Costa.</p>
+          <span class="pub-badge">Dissertação · Em qualificação</span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">Atual</span>
+        <div class="pub-body">
+          <h4>Grupo de Pesquisa em Direito e Economia do Crime (DECrim)</h4>
+          <p>Universidade Federal do Rio Grande do Norte (UFRN). Registrado no Diretório de Grupos de Pesquisa do CNPq.</p>
+          <span class="pub-badge">Grupo de pesquisa · CNPq</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ATUAÇÃO -->
+<section class="section areas-section">
+  <div class="section-inner">
+    <p class="eyebrow">Atuação</p>
+    <h2>O que faço na prática.</h2>
+    <div class="areas-grid">
+      <div class="area-card">
+        <p class="area-num">01</p>
+        <h4>Diagnóstico Estrutural Jurídico</h4>
+        <p>Mapeamento dos pontos de ruptura jurídica do negócio. Sessão estruturada com entrega de relatório escrito, mapa de riscos e plano de reorganização.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-num">02</p>
+        <h4>Reorganização Contratual</h4>
+        <p>Revisão e reconstrução dos contratos críticos do negócio com modelagem de riscos, alinhamento de incentivos e cláusulas de gestão de conflito.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-num">03</p>
+        <h4>Estruturação Jurídica de Empresas</h4>
+        <p>Reorganização completa da estrutura jurídica — contratos, fluxos, procedimentos e gestão de risco. Projeto com início, meio e fim definidos.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-num">04</p>
+        <h4>Assessoria em Contratos Administrativos</h4>
+        <p>Análise e estruturação de contratos com a Administração Pública sob a Lei 14.133/2021, com foco em prevenção de conflitos e gestão de riscos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact-section" id="contato">
+  <h2>Vamos <em>conversar?</em></h2>
+  <p>Entre em contato para saber mais sobre diagnóstico, reorganização contratual ou assessoria jurídica preventiva.</p>
+  <div class="contact-links">
+    <a href="https://wa.me/5518976021676" class="contact-btn primary" target="_blank">WhatsApp</a>
+    <a href="https://anabeatrizslobodticov.github.io/anabeatrizslobodticov/" class="contact-btn secondary" target="_blank">Ver Diagnóstico Estrutural</a>
+    <a href="https://www.instagram.com/anabslobodticov" class="contact-btn secondary" target="_blank">Instagram</a>
+  </div>
+  <p class="contact-detail">anabeatrizslobodticov@gmail.com · OAB/SP 348.784</p>
+</section>
+
+<footer>
+  <p>Ana Beatriz Slobodticov · Advogada · <span>OAB/SP 348.784</span> · Slobodticov e Teixeira Sociedade de Advogados</p>
+</footer>
+
+</body>
+</html>
